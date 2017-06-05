@@ -1,8 +1,10 @@
 #include "DynamicArray.h"
 #include "LinkedList.h"
+#include "BinaryTree.h"
 
 void TestDynamicArray();
 void TestLinkedLists();
+void TestBinaryTrees();
 
 void main()
 {
@@ -10,7 +12,11 @@ void main()
 	//TestDynamicArray();
 	
 	//test our linked lists
-	TestLinkedLists();
+	//TestLinkedLists();
+
+	//test our Binary trees
+	TestBinaryTrees();
+
 }
 
 void TestDynamicArray()
@@ -121,4 +127,18 @@ void TestLinkedLists()
 	//print out details
 	std::cout << "Count: " << numbers.count << std::endl;
 	numbers.Print();
+}
+
+void TestBinaryTrees()
+{
+	BinaryTree numberTree;
+	numberTree.Insert(3);
+	numberTree.Insert(2);
+	numberTree.Insert(5);
+	numberTree.Insert(4);
+	numberTree.Insert(10);
+	numberTree.Insert(2);
+
+	numberTree.PrintNodes();
+	std::cout << std::endl;
 }
