@@ -12,6 +12,19 @@ public:
 	void PushBack(int value);
 	//adds to start of list
 	void PushFront(int value);
+	//inserts at index
+	void Insert(int a_value, int a_index);
+	//removes at index
+	void Remove(int a_index);
+	//removes first item
+	void PopFront();
+	//removes last item
+	void PopBack();
+	//returns first node
+	LinkListNode* begin();
+	//returns last node
+	LinkListNode* end();
+	
 	void Print();
 	//pointer to our first node
 	LinkListNode* start;

@@ -37,6 +37,7 @@ void Stack::Push(int a_value)
 {
 	//check capacity, resize if necessary
 
+
 	//add our value to the end of the array
 	data[size] = a_value;
 	size++;
@@ -44,7 +45,7 @@ void Stack::Push(int a_value)
 
 int Stack::Pop()
 {
-	//decrement size (now our stazck is technically one less)
+	//decrement size (now our stack is technically one less)
 	size--;
 
 	//return data at size

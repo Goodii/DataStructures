@@ -14,6 +14,20 @@ LinkedList::~LinkedList()
 	
 }
 
+LinkListNode::LinkListNode()
+{
+	data = 0;
+	next = nullptr;
+	previous = nullptr;
+}
+
+LinkListNode::LinkListNode(int a_data)
+{
+	data = a_data;
+	next = nullptr;
+	previous = nullptr;
+}
+
 void LinkedList::PushBack(int value)
 {
 	//if start is nullptr; add first node
@@ -85,16 +99,33 @@ void LinkedList::Print()
 
 }
 
-LinkListNode::LinkListNode()
+void LinkedList::Insert(int a_value, int a_index)
 {
-	data = 0;
-	next = nullptr;
-	previous = nullptr;
+
+
 }
 
-LinkListNode::LinkListNode(int a_data)
+void LinkedList::Remove(int a_index)
 {
-	data = a_data;
-	next = nullptr;
-	previous = nullptr;
+
+}
+
+void LinkedList::PopFront()
+{
+
+}
+
+void LinkedList::PopBack()
+{
+
+}
+
+LinkListNode* LinkedList::begin()
+{
+
+}
+
+LinkListNode* LinkedList::end()
+{
+
 }

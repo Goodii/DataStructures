@@ -7,6 +7,7 @@ void TestDynamicArray();
 void TestLinkedLists();
 void TestBinaryTrees();
 void TestHashTable();
+void TestStack();
 
 void main()
 {
@@ -14,12 +15,15 @@ void main()
 	//TestDynamicArray();
 	
 	//test our linked lists
-	TestLinkedLists();
+	//TestLinkedLists();
 
 	//test our Binary trees
 	//TestBinaryTrees();
 
-	//test our Hash table
+	//tests stack
+	//TestStack();
+
+	//test Hash table
 	//TestHashTable();
 }
 
@@ -167,7 +171,14 @@ void TestHashTable()
 	std::cout << data.Get("John Smith") << std::endl;
 	std::cout << data.Get("Johnny Joestar") << std::endl;
 	
+	data["Num1"] = 1;
+	std::cout << data["Num1"] << std::endl;
+
 	data.Add("John Smith", 11);
-		
 	std::cout << data.Get("John Smith") << std::endl;
+}
+
+void TestStack()
+{
+
 }
