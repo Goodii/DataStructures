@@ -14,63 +14,6 @@ LinkedList::~LinkedList()
 	
 }
 
-/*
-void LinkedList::PushBack(int value)
-{
-	//if start is nullptr
-		//adding our first node
-		//create a new LinkListNode
-		//store value in that node
-		//set up next and previous pointers
-
-	//add our first node
-	if (start == nullptr)
-	{
-		//create the node on the heap
-		LinkListNode* newNode = new LinkListNode();
-
-		//set the node's value
-		newNode->data = value;
-
-		//set up the node's pointers
-		newNode->next = nullptr;
-		newNode->previous = nullptr;
-
-		//point start node at new node
-		start = newNode; //copies address
-	}
-
-	else //if this is already a start node
-	{
-		//create node
-		LinkListNode* newNode = new LinkListNode();
-
-		//set up its data
-		newNode->data = value;
-		newNode->next = nullptr; //we know next is null pointer because it is the last node
-
-		//find the final node
-		//create a current node pointer - this just holds an address
-		LinkListNode* currentNode = start;
-
-		//while currentNode's next is not nullptr (not the end)
-			//look at the node attached to this one
-		while (currentNode->next != nullptr)
-		{
-			//start pointing at the next one
-			currentNode = currentNode->next;
-		}
-
-		//add it to the end of the list
-		currentNode->next = newNode; //connect newNode to startNode
-		newNode->previous = currentNode;
-	}
-
-	//increment count
-	count++;
-}
-*/
-
 void LinkedList::PushBack(int value)
 {
 	//if start is nullptr; add first node

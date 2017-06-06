@@ -1,10 +1,12 @@
 #include "DynamicArray.h"
 #include "LinkedList.h"
 #include "BinaryTree.h"
+#include "HashTable.h"
 
 void TestDynamicArray();
 void TestLinkedLists();
 void TestBinaryTrees();
+void TestHashTable();
 
 void main()
 {
@@ -12,11 +14,13 @@ void main()
 	//TestDynamicArray();
 	
 	//test our linked lists
-	//TestLinkedLists();
+	TestLinkedLists();
 
 	//test our Binary trees
-	TestBinaryTrees();
+	//TestBinaryTrees();
 
+	//test our Hash table
+	//TestHashTable();
 }
 
 void TestDynamicArray()
@@ -151,4 +155,19 @@ void TestBinaryTrees()
 	numberTree.PrintNodes();
 
 	numberTree.Find(5);
+}
+
+void TestHashTable()
+{
+	HashTable data;
+
+	data.Add("John Smith", 2);
+	data.Add("Johnny Joestar", 3);
+
+	std::cout << data.Get("John Smith") << std::endl;
+	std::cout << data.Get("Johnny Joestar") << std::endl;
+	
+	data.Add("John Smith", 11);
+		
+	std::cout << data.Get("John Smith") << std::endl;
 }

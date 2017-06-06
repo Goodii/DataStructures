@@ -177,6 +177,9 @@ bool BinaryTree::Find(int a_data)
 
 void BinaryTree::Remove(int a_data)
 {
+	BinaryTreeNode* nodeToRemove;
+	BinaryTreeNode* nextNode;
+
 	//find the node
 	currentNode = root;
 
@@ -193,9 +196,13 @@ void BinaryTree::Remove(int a_data)
 		if (currentNode->left != nullptr && currentNode->right != nullptr)
 		{
 			//find nextNode in sequence
-			
+			nextNode = currentNode->left;
+
 			//copy value of nextNode into nodeToRemove
-			//call value
+			nodeToRemove = nextNode;
+
+			
+
 		}
 	}
 }
