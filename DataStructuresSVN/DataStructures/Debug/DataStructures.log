@@ -1,2 +1,5 @@
 ﻿  Source.cpp
+  BinaryTree.cpp
+c:\users\s171020\documents\datastructures\datastructures.git\datastructuressvn\datastructures\binarytree.cpp(178): warning C4800: 'BinaryTreeNode *': forcing value to bool 'true' or 'false' (performance warning)
+  Generating Code...
   DataStructures.vcxproj -> C:\Users\s171020\Documents\DataStructures\DataStructures.git\DataStructuresSVN\Debug\DataStructures.exe

@@ -27,7 +27,6 @@ void BinaryTree::Insert(int a_data)
 
 	else
 	{
-		BinaryTreeNode* currentNode;
 		currentNode = root;
 		//loop over currentNode pointer
 		while (true)
@@ -68,38 +67,22 @@ void BinaryTree::Insert(int a_data)
 	}
 }
 
-void BinaryTree::Find(int a_data)
-{
-	bool isFound = false;
-	while (isFound != true)
-	{
-
-	}
-}
-
-void BinaryTree::Remove(int a_data)
-{
-	//find the node
-	//if no children
-		//remove with no children
-	//if two children
-		//find nextNode in sequence
-		//copy value of nextNode into nodeToRemove
-		//call value
-}
-
 void BinaryTree::PrintNodes()
 {
 	if (root != nullptr)
 	{
+		std::cout << "Pre Order : ";
 		root->PrintPreOrder();
 		std::cout << std::endl;
 
+		std::cout << "Post Order : ";
+		root->PrintPostOrder();
+		std::cout << std::endl;
+
+		std::cout << "In Order : ";
 		root->PrintInOrder();
 		std::cout << std::endl;
 
-		root->PrintPostOrder();
-		std::cout << std::endl;
 	}
 
 }
@@ -127,13 +110,13 @@ void BinaryTreeNode::PrintPostOrder()
 	//print left child data
 	if (left != nullptr)
 	{
-		left->PrintPreOrder();
+		left->PrintPostOrder();
 	}
 
 	//print right child data
 	if (right != nullptr)
 	{
-		right->PrintPreOrder();
+		right->PrintPostOrder();
 	}
 
 	//print node data
@@ -145,7 +128,7 @@ void BinaryTreeNode::PrintInOrder()
 	//print left child data
 	if (left != nullptr)
 	{
-		left->PrintPreOrder();
+		left->PrintInOrder();
 	}
 
 	//print node data
@@ -154,6 +137,65 @@ void BinaryTreeNode::PrintInOrder()
 	//print right child data
 	if (right != nullptr)
 	{
-		right->PrintPreOrder();
+		right->PrintInOrder();
+	}
+}
+
+bool BinaryTree::Find(int a_data)
+{
+	//set current node to root
+	currentNode = root;
+
+	//while currentNode is not null
+	while (currentNode != nullptr)
+	{
+		//if a_data == currentNode->data
+		if (a_data == currentNode->data)
+		{
+			//return currentNode and parent
+			return currentNode;
+		}
+
+		else
+		{
+			//if a_data < currentNode->data
+			if (a_data < currentNode->data)
+			{
+				//set currentNode to left
+				currentNode = currentNode->left;
+			}
+			//else
+			else
+			{
+				//set currentNode to right
+				currentNode = currentNode->right;
+			}
+		}
+	}
+	return false;
+}
+
+void BinaryTree::Remove(int a_data)
+{
+	//find the node
+	currentNode = root;
+
+	if (Find(a_data) == true)
+	{
+		//if no children
+		if (currentNode->left == nullptr && currentNode->right == nullptr)
+		{
+			//remove with no children
+			currentNode = nullptr;
+		}
+
+		//if two children
+		if (currentNode->left != nullptr && currentNode->right != nullptr)
+		{
+			//find nextNode in sequence
+			
+			//copy value of nextNode into nodeToRemove
+			//call value
+		}
 	}
 }

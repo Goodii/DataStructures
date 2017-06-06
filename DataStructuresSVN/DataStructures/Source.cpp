@@ -132,13 +132,23 @@ void TestLinkedLists()
 void TestBinaryTrees()
 {
 	BinaryTree numberTree;
-	numberTree.Insert(3);
-	numberTree.Insert(2);
-	numberTree.Insert(5);
-	numberTree.Insert(4);
-	numberTree.Insert(10);
-	numberTree.Insert(2);
 
-	numberTree.PrintNodes();
+	std::cout << "Original order : ";
+
+	
+
+	for (int i = 0; i < 10; i++)
+	{
+		int value = rand() % 10;
+		std::cout << " " << value << " ";
+		numberTree.Insert(value);
+	}
+
+	numberTree.Insert(5);
+	std::cout << " 5 ";
+
 	std::cout << std::endl;
+	numberTree.PrintNodes();
+
+	numberTree.Find(5);
 }
