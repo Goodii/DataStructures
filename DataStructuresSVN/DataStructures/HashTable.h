@@ -13,7 +13,7 @@ public:
 	int& operator[](const std::string a_key);
 
 	//converts input to output (string to unsigned int)
-	unsigned int Hash(std::string key);
+	unsigned int Hash( std::string key );
 
 	int* data;
 	unsigned int tableSize;
