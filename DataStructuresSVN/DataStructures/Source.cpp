@@ -15,7 +15,7 @@ void main()
 	//TestDynamicArray();
 	
 	//test our linked lists
-	//TestLinkedLists();
+	TestLinkedLists();
 
 	//test our Binary trees
 	//TestBinaryTrees();
@@ -128,13 +128,58 @@ void TestLinkedLists()
 	//create linkedlist
 	LinkedList numbers;
 
-	//add two numbers
+	//print out details
+	std::cout << "PushBack(1),(2),(3),(4)" << std::endl;
 	numbers.PushBack(1);
 	numbers.PushBack(2);
-
-	//print out details
-	std::cout << "Count: " << numbers.count << std::endl;
+	numbers.PushBack(3);
+	numbers.PushBack(4);
 	numbers.Print();
+
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+	//add number to start
+	std::cout << std::endl << "PushFront(0)" << std::endl;
+	numbers.PushFront(0);
+	numbers.Print();
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+	//remove number at index 2
+	std::cout << std::endl << "Remove( at index 2 )" << std::endl;
+	numbers.Remove(2);
+	numbers.Print();
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+	//insert number at index 1
+	std::cout << std::endl << "Insert(10 at index 1)" << std::endl;
+	numbers.Insert(10, 1);
+	numbers.Print();
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+	//remove first number
+	std::cout << std::endl << "PopFront" << std::endl;
+	numbers.PopFront();
+	numbers.Print();
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+	//remove last number
+	std::cout << std::endl << "PopBack" << std::endl;
+	numbers.PopBack();
+	numbers.Print();
+
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+	//return start node
+	std::cout << std::endl << "Return Start Node address: " << numbers.begin() << std::endl;
+
+	//return last node
+	std::cout << std::endl << "Return Last Node address: " << numbers.end() << std::endl;
 }
 
 void TestBinaryTrees()

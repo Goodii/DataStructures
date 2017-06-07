@@ -12,10 +12,10 @@ public:
 	void PushBack(int value);
 	//adds to start of list
 	void PushFront(int value);
-	//inserts at index
-	void Insert(int a_value, int a_index);
 	//removes at index
 	void Remove(int a_index);
+	//inserts at index
+	void Insert(int a_value, int a_index);
 	//removes first item
 	void PopFront();
 	//removes last item
