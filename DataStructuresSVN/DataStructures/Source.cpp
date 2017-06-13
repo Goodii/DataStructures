@@ -2,6 +2,7 @@
 #include "LinkedList.h"
 #include "BinaryTree.h"
 #include "HashTable.h"
+#include "Stack.h"
 
 void TestDynamicArray();
 void TestLinkedLists();
@@ -12,19 +13,19 @@ void TestStack();
 void main()
 {
 	//test our dynamic array
-	//TestDynamicArray();
+	//std::cout << "Dynamic Array" << std::endl; TestDynamicArray();
 	
 	//test our linked lists
-	TestLinkedLists();
+	//std::cout << "Linked Lists" << std::endl; TestLinkedLists();
 
 	//test our Binary trees
-	//TestBinaryTrees();
+	//std::cout << "Binary Tree" << std::endl; TestBinaryTrees();
 
 	//tests stack
-	//TestStack();
+	std::cout << "Stack" << std::endl; TestStack();
 
 	//test Hash table
-	//TestHashTable();
+	//std::cout << "Hash Table" << std::endl; TestHashTable();
 }
 
 void TestDynamicArray()
@@ -188,8 +189,7 @@ void TestBinaryTrees()
 
 	std::cout << "Original order : ";
 
-	
-
+	//inserts 10 random values
 	for (int i = 0; i < 10; i++)
 	{
 		int value = rand() % 10;
@@ -197,13 +197,25 @@ void TestBinaryTrees()
 		numberTree.Insert(value);
 	}
 
+	//insert additional number
 	numberTree.Insert(5);
 	std::cout << " 5 ";
 
+	//prints pre, post and in order nodes
 	std::cout << std::endl;
 	numberTree.PrintNodes();
 
-	numberTree.Find(5);
+	//find number
+	bool numberFound = numberTree.Find(5);
+	std::cout << "Is number found: " << numberFound << std::endl;
+
+	//removes number
+	numberTree.Remove(5);
+	
+	//searches for removed number
+	numberFound = numberTree.Find(5);
+	std::cout << "Is number found: " << numberFound << std::endl;
+
 }
 
 void TestHashTable()
@@ -225,5 +237,35 @@ void TestHashTable()
 
 void TestStack()
 {
+	Stack stackData;
+
+	//checks if stack is empty
+	std::cout << "IsEmpty: " << stackData.IsEmpty() << std::endl;
+
+	//adds number to top of the stack
+	std::cout << "Push (0 - 9)" << std::endl;
+	for (int i = 0; i < 10; i++)
+	{
+		stackData.Push(i);
+	}
+
+	//returns the size (amount of items on stack)
+	std::cout << "GetSize: " << stackData.GetSize() << std::endl;
+
+	//removes value from top of stack
+	std::cout << "Pop" << std::endl;
+	stackData.Pop();
+
+	//returns the size (amount of items on stack)
+	std::cout << "GetSize: " << stackData.GetSize() << std::endl;
+
+	//returns value at the top of the stack
+	std::cout << "Top: " << stackData.Top() << std::endl;
+
+	//returns the size (amount of items on stack)
+	std::cout << "GetSize: " << stackData.GetSize() << std::endl;
+
+	//checks if stack is empty
+	std::cout << "IsEmpty: " << stackData.IsEmpty() << std::endl;
 
 }

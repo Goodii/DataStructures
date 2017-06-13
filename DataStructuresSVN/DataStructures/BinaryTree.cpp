@@ -185,23 +185,40 @@ void BinaryTree::Remove(int a_data)
 
 	if (Find(a_data) == true)
 	{
+		
 		//if no children
 		if (currentNode->left == nullptr && currentNode->right == nullptr)
 		{
-			//remove with no children
-			currentNode = nullptr;
+			if (currentNode->data == a_data)
+			{
+				//remove with no children
+				currentNode = nullptr;
+			}
 		}
 
 		//if two children
-		if (currentNode->left != nullptr && currentNode->right != nullptr)
+		else if (currentNode->left != nullptr && currentNode->right != nullptr)
 		{
-			//find nextNode in sequence
-			nextNode = currentNode->left;
+			//if a_data is less than currentNode, set nextNode to currentNode->left
+			if (a_data < currentNode->data)
+			{
+				//find nextNode in sequence
+				nextNode = currentNode->left;
+			}
+
+			else
+			{
+				nextNode = currentNode->right;
+			}
 
 			//copy value of nextNode into nodeToRemove
 			nodeToRemove = nextNode;
 
-			
+			//check if nodeToRemove is correct data
+			if (nodeToRemove->data == a_data)
+			{
+				
+			}
 
 		}
 	}

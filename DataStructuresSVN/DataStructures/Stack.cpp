@@ -36,7 +36,10 @@ int Stack::GetSize() const
 void Stack::Push(int a_value)
 {
 	//check capacity, resize if necessary
-
+	if (size == capacity)
+	{
+		capacity++;
+	}
 
 	//add our value to the end of the array
 	data[size] = a_value;
@@ -45,11 +48,14 @@ void Stack::Push(int a_value)
 
 int Stack::Pop()
 {
-	//decrement size (now our stack is technically one less)
-	size--;
-
-	//return data at size
-	return data[size];
+	//check if stack is empty
+	if (IsEmpty() == false)
+	{
+		//decrement size (now our stack is technically one less)
+		size--;
+		//return data at size
+		return data[size];
+	}
 }
 
 int Stack::Top()
