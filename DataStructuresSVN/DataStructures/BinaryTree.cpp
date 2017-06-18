@@ -153,7 +153,7 @@ bool BinaryTree::Find(int a_data)
 		if (a_data == currentNode->data)
 		{
 			//return currentNode and parent
-			return currentNode;
+			return true;
 		}
 
 		else
@@ -175,51 +175,100 @@ bool BinaryTree::Find(int a_data)
 	return false;
 }
 
-void BinaryTree::Remove(int a_data)
+BinaryTreeNode* BinaryTree::FindNode(int a_data)
 {
-	BinaryTreeNode* nodeToRemove;
-	BinaryTreeNode* nextNode;
-
-	//find the node
+	//set current node to root
 	currentNode = root;
 
-	if (Find(a_data) == true)
+	//while currentNode is not null
+	while (currentNode != nullptr)
 	{
-		
-		//if no children
-		if (currentNode->left == nullptr && currentNode->right == nullptr)
+		//if a_data == currentNode->data
+		if (a_data == currentNode->data)
 		{
-			if (currentNode->data == a_data)
-			{
-				//remove with no children
-				currentNode = nullptr;
-			}
+			//return currentNode and parent
+			return currentNode;
 		}
 
-		//if two children
-		else if (currentNode->left != nullptr && currentNode->right != nullptr)
+		else
 		{
-			//if a_data is less than currentNode, set nextNode to currentNode->left
+			//if a_data < currentNode->data
 			if (a_data < currentNode->data)
 			{
-				//find nextNode in sequence
-				nextNode = currentNode->left;
+				//set currentNode to left
+				currentNode = currentNode->left;
 			}
-
+			//else
 			else
 			{
-				nextNode = currentNode->right;
+				//set currentNode to right
+				currentNode = currentNode->right;
 			}
-
-			//copy value of nextNode into nodeToRemove
-			nodeToRemove = nextNode;
-
-			//check if nodeToRemove is correct data
-			if (nodeToRemove->data == a_data)
-			{
-				
-			}
-
 		}
 	}
+	return nullptr;
+}
+
+/*
+void BinaryTree::Remove(int a_data)
+{
+	//find the node
+	currentNode = FindNode(a_data);
+
+	//if no children
+	if (currentNode->left == nullptr && currentNode->right == nullptr)
+	{
+		//remove with no children
+		currentNode = nullptr;
+	}
+
+	//if two children
+	else if (currentNode->right != nullptr)
+	{
+		//find minimum value (iterate through left children until left == nullptr)
+		while (currentNode->left != nullptr)
+		{
+			currentNode = currentNode->left;
+		}
+
+		currentNode = nullptr;
+	}
+
+	//if left child
+	else
+	{
+		
+	}
+}
+*/
+
+void BinaryTree::Remove(int a_data)
+{
+	//find value, return pointer to node
+	BinaryTreeNode* searchNode = FindNode(a_data);
+
+	currentNode = searchNode;
+
+	//if currentNode has right child
+	if (currentNode->hasRight())
+	{
+		//find minimum value (iterate down left child)
+		while (currentNode->left->hasLeft())
+		{
+			//copy value from minimum node's parent to currentNode
+			currentNode = currentNode->left;
+		}
+			//if deleting parent's left node
+				//set this left child to right child of minimum node
+			//if deleting parent's right node
+				//set the right child to the right child of minimum node
+	}
+	
+	//if currentNode has no right child
+		//if deleting parent's left child
+			//set parent's left child to currentNode's left child
+		//if deleting parent's right child
+			//set parent's right child to currentNode's left child
+		//if deleting root
+			//root becomes left child of currentNode
 }

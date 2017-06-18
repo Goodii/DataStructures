@@ -16,16 +16,17 @@ void main()
 	//std::cout << "Dynamic Array" << std::endl; TestDynamicArray();
 	
 	//test our linked lists
-	//std::cout << "Linked Lists" << std::endl; TestLinkedLists();
+	std::cout << "Linked Lists" << std::endl; TestLinkedLists();
 
 	//test our Binary trees
 	//std::cout << "Binary Tree" << std::endl; TestBinaryTrees();
 
-	//tests stack
-	std::cout << "Stack" << std::endl; TestStack();
-
 	//test Hash table
 	//std::cout << "Hash Table" << std::endl; TestHashTable();
+
+	//tests stack
+	//std::cout << "Stack" << std::endl; TestStack();
+
 }
 
 void TestDynamicArray()
@@ -140,6 +141,14 @@ void TestLinkedLists()
 	//print out count
 	std::cout << "Count: " << numbers.count << std::endl;
 
+	//insert number at index 1
+	std::cout << std::endl << "Insert(10 at index 1)" << std::endl;
+	numbers.Insert(10, 1);
+	numbers.Print();
+	//print out count
+	std::cout << "Count: " << numbers.count << std::endl;
+
+
 	//add number to start
 	std::cout << std::endl << "PushFront(0)" << std::endl;
 	numbers.PushFront(0);
@@ -190,12 +199,12 @@ void TestBinaryTrees()
 	std::cout << "Original order : ";
 
 	//inserts 10 random values
-	for (int i = 0; i < 10; i++)
-	{
-		int value = rand() % 10;
-		std::cout << " " << value << " ";
-		numberTree.Insert(value);
-	}
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	int value = rand() % 10;
+	//	std::cout << " " << value << " ";
+	//	numberTree.Insert(value);
+	//}
 
 	//insert additional number
 	numberTree.Insert(5);

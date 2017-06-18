@@ -143,12 +143,18 @@ void LinkedList::Insert(int a_value, int a_index)
 
 	if (a_index < count && a_index >= 0)
 	{
+		//currentNode = indexNode
 		for (int i = 0; i < a_index; i++)
 		{
 			currentNode = currentNode->next;
 		}
 
+		newNode->previous = currentNode->previous->next;
+		currentNode->previous->next = newNode;
 
+		newNode->next = currentNode;
+		currentNode->previous = newNode;
+		
 		count++;
 	}
 
