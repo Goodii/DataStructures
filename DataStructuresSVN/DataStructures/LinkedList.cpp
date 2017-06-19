@@ -122,8 +122,9 @@ void LinkedList::Remove(int a_index)
 			currentNode = currentNode->next;
 		}
 
-		currentNode->next->previous = currentNode->previous;
-		currentNode->previous->next = currentNode->next;
+		//next->previous = previous
+		//previous->next = next
+		
 
 		delete currentNode;
 
